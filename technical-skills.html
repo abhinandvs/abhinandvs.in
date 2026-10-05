@@ -1,157 +1,246 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Technical Skills | Abhinand V S</title>
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
-        rel="stylesheet">
-    <!-- Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles_royal.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Styles -->
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="subpages.css">
+    <style>
+        .skills-wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 160px 20px 100px;
+        }
+
+        .skills-page-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .skills-page-header h1 {
+            font-size: 3.8rem;
+            letter-spacing: 6px;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        .skills-page-header p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        /* Category blocks */
+        .skill-category {
+            margin-bottom: 60px;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 28px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--gold-dim);
+        }
+
+        .category-header i {
+            font-size: 1.2rem;
+            color: var(--gold);
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--gold-dim);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .category-header h2 {
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 400;
+        }
+
+        /* Tech chips grid */
+        .tech-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .tech-chip {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 22px;
+            border: 1px solid var(--gold-dim);
+            border-radius: 50px;
+            color: var(--text-cream);
+            font-family: var(--font-body);
+            font-size: 0.82rem;
+            letter-spacing: 1px;
+            transition: all 0.35s ease;
+            background: transparent;
+            cursor: default;
+        }
+
+        .tech-chip i {
+            color: var(--gold);
+            font-size: 0.9rem;
+        }
+
+        .tech-chip:hover {
+            border-color: var(--gold);
+            background: rgba(198, 168, 124, 0.08);
+            transform: translateY(-3px);
+            color: var(--gold);
+        }
+
+        @media (max-width: 600px) {
+            .skills-page-header h1 { font-size: 2.5rem; }
+            .tech-chip { font-size: 0.78rem; padding: 10px 16px; }
+        }
+    </style>
 </head>
-
 <body>
-    <!-- Background Decorations -->
-    <div class="bg-decorations">
-        <div class="bg-shape shape-1"></div>
-        <div class="bg-shape shape-2"></div>
-        <div class="bg-shape shape-3"></div>
+
+    <!-- Switch Button -->
+    <a href="index.html" class="page-switch-btn" title="Back to Portfolio">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+
+    <div class="skills-wrapper">
+
+        <!-- Header -->
+        <div class="skills-page-header">
+            <h1>Technical Expertise</h1>
+            <p>Skills from my latest professional experience</p>
+        </div>
+
+        <!-- 1. Embedded Firmware -->
+        <div class="skill-category">
+            <div class="category-header">
+                <i class="fas fa-code"></i>
+                <h2>Embedded Firmware Development</h2>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-chip"><i class="fas fa-terminal"></i> Embedded C</div>
+                <div class="tech-chip"><i class="fas fa-memory"></i> Register-Level Programming</div>
+                <div class="tech-chip"><i class="fas fa-bolt"></i> Interrupt Handling</div>
+                <div class="tech-chip"><i class="fas fa-layer-group"></i> Bare-Metal Firmware</div>
+                <div class="tech-chip"><i class="fas fa-map-marked-alt"></i> Direct Memory Mapping</div>
+                <div class="tech-chip"><i class="fas fa-dog"></i> Watchdog Timers</div>
+                <div class="tech-chip"><i class="fas fa-clock"></i> Timers & ADC</div>
+                <div class="tech-chip"><i class="fas fa-plug"></i> GPIO Configuration</div>
+            </div>
+        </div>
+
+        <!-- 2. Microcontrollers -->
+        <div class="skill-category">
+            <div class="category-header">
+                <i class="fas fa-microchip"></i>
+                <h2>Microcontrollers & Processors</h2>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-chip"><i class="fas fa-microchip"></i> TI MSP430FR5994</div>
+                <div class="tech-chip"><i class="fas fa-microchip"></i> TI MSP430 Series</div>
+                <div class="tech-chip"><i class="fas fa-wifi"></i> ESP32</div>
+                <div class="tech-chip"><i class="fas fa-laptop-code"></i> Code Composer Studio v12.1</div>
+            </div>
+        </div>
+
+        <!-- 3. Communication Protocols -->
+        <div class="skill-category">
+            <div class="category-header">
+                <i class="fas fa-exchange-alt"></i>
+                <h2>Protocols & Interfaces</h2>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-chip"><i class="fas fa-stream"></i> UART</div>
+                <div class="tech-chip"><i class="fas fa-stream"></i> I2C</div>
+                <div class="tech-chip"><i class="fas fa-stream"></i> SPI</div>
+                <div class="tech-chip"><i class="fas fa-stream"></i> RS232</div>
+                <div class="tech-chip"><i class="fas fa-industry"></i> RS422</div>
+                <div class="tech-chip"><i class="fas fa-industry"></i> RS485</div>
+                <div class="tech-chip"><i class="fas fa-network-wired"></i> Ethernet</div>
+            </div>
+        </div>
+
+        <!-- 4. PCB & Hardware -->
+        <div class="skill-category">
+            <div class="category-header">
+                <i class="fas fa-draw-polygon"></i>
+                <h2>PCB Design & Hardware</h2>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-chip"><i class="fas fa-bezier-curve"></i> OrCAD 23.1 Schematic</div>
+                <div class="tech-chip"><i class="fas fa-layer-group"></i> 6-Layer PCB Layout</div>
+                <div class="tech-chip"><i class="fas fa-wrench"></i> PCB Bring-up</div>
+                <div class="tech-chip"><i class="fas fa-search"></i> Board Validation</div>
+                <div class="tech-chip"><i class="fas fa-wave-square"></i> Signal Integrity</div>
+                <div class="tech-chip"><i class="fas fa-oscilloscope"></i> Oscilloscope Debugging</div>
+                <div class="tech-chip"><i class="fas fa-plug"></i> Protocol Analyzers</div>
+                <div class="tech-chip"><i class="fas fa-cogs"></i> Hardware-Software Integration</div>
+            </div>
+        </div>
+
+        <!-- 5. Power Systems -->
+        <div class="skill-category">
+            <div class="category-header">
+                <i class="fas fa-car-battery"></i>
+                <h2>Power Management Systems</h2>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-chip"><i class="fas fa-solar-panel"></i> Solar Arrays</div>
+                <div class="tech-chip"><i class="fas fa-car-battery"></i> Battery Banks</div>
+                <div class="tech-chip"><i class="fas fa-cogs"></i> BMS Testing & Implementation</div>
+                <div class="tech-chip"><i class="fas fa-bolt"></i> MPPT Integration</div>
+                <div class="tech-chip"><i class="fas fa-shield-alt"></i> Remote Health Monitoring</div>
+            </div>
+        </div>
+
+        <!-- 6. Networking & IoT -->
+        <div class="skill-category">
+            <div class="category-header">
+                <i class="fas fa-broadcast-tower"></i>
+                <h2>Networking, Wireless & IoT</h2>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-chip"><i class="fas fa-wifi"></i> Wi-Fi & 5G Systems</div>
+                <div class="tech-chip"><i class="fas fa-satellite-dish"></i> Ubiquiti 5 GHz Wireless</div>
+                <div class="tech-chip"><i class="fas fa-broadcast-tower"></i> RF Antenna Alignment</div>
+                <div class="tech-chip"><i class="fas fa-signal"></i> RF Site Survey</div>
+                <div class="tech-chip"><i class="fas fa-sim-card"></i> Teltonika RUT200 4G Gateway</div>
+                <div class="tech-chip"><i class="fas fa-globe"></i> IoT Remote Monitoring</div>
+                <div class="tech-chip"><i class="fas fa-project-diagram"></i> Network Topology</div>
+            </div>
+        </div>
+
+        <!-- 7. Testing & Defence -->
+        <div class="skill-category">
+            <div class="category-header">
+                <i class="fas fa-clipboard-check"></i>
+                <h2>Testing & Field Trials</h2>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-chip"><i class="fas fa-vial"></i> Functional Testing</div>
+                <div class="tech-chip"><i class="fas fa-tachometer-alt"></i> Performance Testing</div>
+                <div class="tech-chip"><i class="fas fa-thermometer-full"></i> Stress Testing</div>
+                <div class="tech-chip"><i class="fas fa-anchor"></i> Buoy-Based System Testing</div>
+                <div class="tech-chip"><i class="fas fa-shield-alt"></i> FATs (Factory Acceptance Tests)</div>
+                <div class="tech-chip"><i class="fas fa-hard-hat"></i> HATs (Hardware Acceptance Tests)</div>
+                <div class="tech-chip"><i class="fas fa-water"></i> Defence Field Trials</div>
+            </div>
+        </div>
+
     </div>
-    <!-- Navigation Back Button -->
-    <nav class="back-nav">
-        <a href="index.html" class="back-btn">
-            <i class="fas fa-arrow-left"></i> Back to Home
-        </a>
-    </nav>
-
-    <!-- Page Header -->
-    <header class="page-header">
-        <h1 class="page-title">Technical Expertise</h1>
-        <p class="page-subtitle">A deep dive into my engineering capabilities, from hardware design to wireless
-            complications.</p>
-    </header>
-
-    <!-- Skills Content -->
-    <section class="skills-wrapper">
-
-        <!-- Category 1: Hardware Design -->
-        <div class="skill-category">
-            <h2 class="category-title">Hardware Design & PCB Engineering</h2>
-            <div class="tech-grid">
-                <div class="tech-item">
-                    <i class="fas fa-microchip"></i>
-                    <span>Cadence Allegro</span>
-                </div>
-                <div class="tech-item">
-                    <i class="fas fa-bezier-curve"></i>
-                    <span>OrCAD</span>
-                </div>
-                <div class="tech-item">
-                    <i class="fas fa-wave-square"></i>
-                    <span>Sigrity Aurora</span>
-                </div>
-                <div class="tech-item">
-                    <i class="fas fa-bolt"></i>
-                    <span>Signal & Power Integrity</span>
-                </div>
-                <div class="tech-item">
-                    <i class="fas fa-car-battery"></i>
-                    <span>BMS Testing</span>
-                </div>
-                <div class="tech-item">
-                    <i class="fas fa-cogs"></i>
-                    <span>BMS Implementation</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Category 2: Embedded Firmware -->
-        <div class="skill-category">
-            <h2 class="category-title">Embedded System Firmware</h2>
-            <div class="tech-grid">
-                <div class="tech-item">
-                    <i class="fas fa-code"></i>
-                    <span>Embedded C</span>
-                </div>
-                <div class="tech-item">
-                    <i class="fas fa-laptop-code"></i>
-                    <span>Code Composer Studio</span>
-                </div>
-                <div class="tech-item">
-                    <i class="fas fa-microchip"></i>
-                    <span>MSP430</span>
-                </div>
-                <div class="tech-item">
-                    <i class="fas fa-wifi"></i>
-                    <span>ESP32</span>
-                </div>
-                <div class="tech-item">
-                    <i class="fas fa-calculator"></i>
-                    <span>STM32</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Category 3: Wireless Communication -->
-        <div class="skill-category">
-            <h2 class="category-title">Wireless Communication & Networking</h2>
-            <div class="tech-grid">
-                <div class="tech-item">
-                    <i class="fas fa-broadcast-tower"></i>
-                    <span>RF Antenna Alignment</span>
-                </div>
-                <div class="tech-item">
-                    <i class="fas fa-satellite-dish"></i>
-                    <span>Ubiquiti 19dBi Sectoral</span>
-                </div>
-                <div class="tech-item">
-                    <i class="fas fa-wifi"></i>
-                    <span>TE 6dBi Omni</span>
-                </div>
-                <div class="tech-item">
-                    <i class="fas fa-search-location"></i>
-                    <span>RF Site Survey</span>
-                </div>
-                <div class="tech-item">
-                    <i class="fas fa-volume-mute"></i>
-                    <span>Noise Floor Mgmt</span>
-                </div>
-                <div class="tech-item">
-                    <i class="fas fa-network-wired"></i>
-                    <span>Ubiquiti AirMax/AirOS</span>
-                </div>
-                <div class="tech-item">
-                    <i class="fas fa-rocket"></i>
-                    <span>Rocket Prism 5AC Gen2</span>
-                </div>
-                <div class="tech-item">
-                    <i class="fas fa-globe"></i>
-                    <span>Networking & VPN</span>
-                </div>
-                <div class="tech-item">
-                    <i class="fas fa-industry"></i>
-                    <span>Industrial LTE Gateways</span>
-                </div>
-                <div class="tech-item">
-                    <i class="fas fa-project-diagram"></i>
-                    <span>Network Topology</span>
-                </div>
-                <div class="tech-item">
-                    <i class="fas fa-desktop"></i>
-                    <span>Remote Monitoring</span>
-                </div>
-            </div>
-        </div>
-
-    </section>
 </body>
-
 </html>

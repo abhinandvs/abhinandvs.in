@@ -10,7 +10,14 @@ window.addEventListener('load', () => {
 // Main Initialization
 document.addEventListener('DOMContentLoaded', () => {
 
-    // Header Scroll Effect
+    // Entry Portal Logic
+    const btnProfessional = document.getElementById('btn-professional');
+    if (btnProfessional) {
+        btnProfessional.addEventListener('click', () => {
+            document.body.classList.remove('entry-active');
+        });
+    }
+
     // Header Scroll Effect & ScrollSpy
     const header = document.querySelector('.header');
     const sections = document.querySelectorAll('section');

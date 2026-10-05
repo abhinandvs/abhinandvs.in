@@ -6,17 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Memories | Abhinand V S</title>
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
-        rel="stylesheet">
-    <!-- Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles_royal.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Styles -->
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="subpages.css">
-    <link rel="stylesheet" href="memories.css">
+
+    <!-- Page Switcher Button -->
+    <a href="index.html" class="page-switch-btn" title="Switch to Professional Page">
+        <i class="fas fa-exchange-alt"></i><span> Professional</span>
+    </a>
 </head>
 
 <body>
@@ -27,12 +24,43 @@
         <div class="bg-shape shape-3"></div>
     </div>
 
-    <!-- Navigation Back Button -->
-    <nav class="back-nav">
-        <a href="index.html" class="back-btn">
-            <i class="fas fa-arrow-left"></i> Back to Home
-        </a>
-    </nav>
+    <!-- Page Switcher Button -->
+    <a href="index.html" class="page-switch-btn" title="Switch to Professional Page">
+        <i class="fas fa-exchange-alt"></i><span> Professional</span>
+    </a>
+
+    <style>
+        /* Page Switcher Button */
+        .page-switch-btn {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: transparent;
+            border: 1px solid #C6A87C;
+            color: #C6A87C;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            font-size: 1rem;
+            z-index: 2000;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .page-switch-btn span {
+            display: none;
+        }
+
+        .page-switch-btn:hover {
+            background: #C6A87C;
+            color: #0A1E14;
+            transform: translateY(-3px);
+        }
+    </style>
 
     <!-- Page Header -->
     <header class="page-header">
