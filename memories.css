@@ -1,30 +1,46 @@
-/* Memories Page - Minimalistic Masonry Layout */
+/* Memories Page - Liquid Glass Masonry Layout */
 
 body {
-    background-color: #0a0a0c;
-    color: #fff;
+    background-color: var(--bg-green, #07150e);
+    color: var(--text-cream, #eae5d9);
     margin: 0;
     padding: 0;
-    /* Removed overflow: hidden so vertical scrolling works normally */
     overflow-x: hidden;
+    position: relative;
+}
+
+.page-header {
+    text-align: center;
+    padding: 120px 20px 40px;
+    position: relative;
+    z-index: 2;
 }
 
 .page-title {
-    background: linear-gradient(135deg, #FFB703, #C84B6B);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-family: var(--font-heading, 'Cormorant Garamond', serif);
+    font-size: 3.8rem;
+    letter-spacing: 6px;
+    color: var(--gold, #c6a87c);
+    text-shadow: 0 4px 20px rgba(198, 168, 124, 0.3);
+    margin-bottom: 8px;
 }
 .page-subtitle {
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--text-muted, #8b9e93);
+    font-family: var(--font-body, 'Montserrat', sans-serif);
+    font-size: 0.9rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
 }
 
 .gallery-wrapper {
     width: 100%;
     min-height: 100vh;
-    padding: 120px 5vw 60px; /* Top padding to clear header/nav */
+    padding: 20px 5vw 80px;
     box-sizing: border-box;
     display: flex;
     justify-content: center;
+    position: relative;
+    z-index: 2;
 }
 
 .gallery-container {
@@ -32,7 +48,7 @@ body {
     max-width: 1400px;
     /* CSS Columns for masonry effect */
     column-count: 4;
-    column-gap: 20px;
+    column-gap: 24px;
 }
 
 @media (max-width: 1200px) {
@@ -56,12 +72,16 @@ body {
 
 .memory-item {
     break-inside: avoid;
-    margin-bottom: 20px;
-    border-radius: 12px;
+    margin-bottom: 24px;
+    border-radius: var(--radius-lg, 28px);
     overflow: hidden;
     position: relative;
-    background: #1a1a1a;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    background: var(--liquid-bg, rgba(12, 37, 24, 0.45));
+    border: var(--liquid-border, 1px solid rgba(198, 168, 124, 0.28));
+    border-top: var(--liquid-border-top, 1px solid rgba(255, 255, 255, 0.35));
+    backdrop-filter: var(--glass-blur, blur(24px));
+    -webkit-backdrop-filter: var(--glass-blur, blur(24px));
+    box-shadow: var(--liquid-shadow, 0 15px 35px rgba(0, 0, 0, 0.4));
     
     /* Center text content if any */
     display: flex;
@@ -73,7 +93,7 @@ body {
     /* Initial state for animation */
     opacity: 0;
     transform: translateY(30px);
-    transition: opacity 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease;
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
 }
 
 /* Revealed state (added via JS) */
@@ -84,8 +104,10 @@ body {
 
 /* Hover effects */
 .memory-item:hover {
-    transform: translateY(-5px); /* Slightly move up instead of full scale to keep layout stable */
-    box-shadow: 0 12px 25px rgba(255, 183, 3, 0.15); /* Subtle glow */
+    transform: translateY(-8px) scale(1.01);
+    border-color: rgba(198, 168, 124, 0.55);
+    border-top-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.55), 0 0 20px rgba(198, 168, 124, 0.2), inset 0 1px 2px rgba(255, 255, 255, 0.4);
 }
 
 .memory-item img {
@@ -93,51 +115,53 @@ body {
     height: auto;
     display: block;
     object-fit: cover;
-    transition: transform 0.4s ease, filter 0.4s ease;
-    filter: brightness(0.9);
+    border-radius: var(--radius-lg, 28px);
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+    filter: brightness(0.92) contrast(1.05);
 }
 
 .memory-item:hover img {
-    transform: scale(1.03); /* Subtle zoom in image */
-    filter: brightness(1.1);
+    transform: scale(1.05);
+    filter: brightness(1.05) contrast(1.1);
 }
 
 /* Text Block Overrides */
 .memory-item.text-block,
 .memory-item.quote-block {
-    background: rgba(30, 30, 35, 0.8);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: #fff;
-    padding: 40px 20px; /* Give text blocks some padding since image handles its own height */
+    background: var(--liquid-bg, rgba(12, 37, 24, 0.6));
+    backdrop-filter: var(--glass-blur, blur(24px));
+    -webkit-backdrop-filter: var(--glass-blur, blur(24px));
+    padding: 48px 28px;
+    border-radius: var(--radius-lg, 28px);
 }
 
 .memory-item.text-block h3 {
-    font-size: 2rem;
-    font-weight: 800;
-    margin-bottom: 10px;
-    line-height: 1.2;
-    background: linear-gradient(135deg, #FFB703, #fff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-family: var(--font-heading, 'Cormorant Garamond', serif);
+    font-size: 2.2rem;
+    font-weight: 500;
+    margin-bottom: 12px;
+    line-height: 1.15;
+    color: var(--gold, #c6a87c);
+    text-shadow: 0 2px 10px rgba(198, 168, 124, 0.25);
 }
 
 .memory-item.text-block .date {
-    font-size: 0.9rem;
-    opacity: 0.7;
-    color: #FFB703;
+    font-family: var(--font-body, 'Montserrat', sans-serif);
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted, #8b9e93);
 }
 
 .memory-item.quote-block p {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-heading, 'Cormorant Garamond', serif);
     font-style: italic;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     line-height: 1.4;
+    color: var(--text-cream, #eae5d9);
 }
 
-/* Specific fix: Don't zoom text block container on hover, only its box shadow */
 .memory-item.text-block:hover,
 .memory-item.quote-block:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
 }
