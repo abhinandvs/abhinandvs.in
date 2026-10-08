@@ -1,8 +1,8 @@
-/* Memories Page - Liquid Glass Masonry Layout */
+/* Memories Page - White Aesthetic & Forest Green Masonry Layout */
 
 body {
-    background-color: var(--bg-green, #07150e);
-    color: var(--text-cream, #eae5d9);
+    background-color: var(--bg-page, #fbfbf9);
+    color: var(--text-body, #3c4f44);
     margin: 0;
     padding: 0;
     overflow-x: hidden;
@@ -17,19 +17,22 @@ body {
 }
 
 .page-title {
-    font-family: var(--font-heading, 'Cormorant Garamond', serif);
-    font-size: 3.8rem;
-    letter-spacing: 6px;
-    color: var(--gold, #c6a87c);
-    text-shadow: 0 4px 20px rgba(198, 168, 124, 0.3);
+    font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+    font-size: 3.6rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--forest-primary, #1e3a2b);
+    text-shadow: none;
     margin-bottom: 8px;
 }
+
 .page-subtitle {
-    color: var(--text-muted, #8b9e93);
+    color: var(--text-muted, #647b6e);
     font-family: var(--font-body, 'Montserrat', sans-serif);
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     letter-spacing: 3px;
     text-transform: uppercase;
+    font-weight: 600;
 }
 
 .gallery-wrapper {
@@ -46,7 +49,6 @@ body {
 .gallery-container {
     width: 100%;
     max-width: 1400px;
-    /* CSS Columns for masonry effect */
     column-count: 4;
     column-gap: 24px;
 }
@@ -76,21 +78,17 @@ body {
     border-radius: var(--radius-lg, 28px);
     overflow: hidden;
     position: relative;
-    background: var(--liquid-bg, rgba(12, 37, 24, 0.45));
-    border: var(--liquid-border, 1px solid rgba(198, 168, 124, 0.28));
-    border-top: var(--liquid-border-top, 1px solid rgba(255, 255, 255, 0.35));
-    backdrop-filter: var(--glass-blur, blur(24px));
-    -webkit-backdrop-filter: var(--glass-blur, blur(24px));
-    box-shadow: var(--liquid-shadow, 0 15px 35px rgba(0, 0, 0, 0.4));
+    background: #ffffff;
+    border: 1px solid rgba(30, 58, 43, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.95);
+    box-shadow: 0 10px 30px rgba(22, 47, 33, 0.05);
     
-    /* Center text content if any */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     
-    /* Initial state for animation */
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
@@ -104,10 +102,9 @@ body {
 
 /* Hover effects */
 .memory-item:hover {
-    transform: translateY(-8px) scale(1.01);
-    border-color: rgba(198, 168, 124, 0.55);
-    border-top-color: rgba(255, 255, 255, 0.6);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.55), 0 0 20px rgba(198, 168, 124, 0.2), inset 0 1px 2px rgba(255, 255, 255, 0.4);
+    transform: translateY(-6px) scale(1.01);
+    border-color: rgba(30, 58, 43, 0.22);
+    box-shadow: 0 20px 45px rgba(22, 47, 33, 0.1);
 }
 
 .memory-item img {
@@ -117,51 +114,48 @@ body {
     object-fit: cover;
     border-radius: var(--radius-lg, 28px);
     transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
-    filter: brightness(0.92) contrast(1.05);
 }
 
 .memory-item:hover img {
-    transform: scale(1.05);
-    filter: brightness(1.05) contrast(1.1);
+    transform: scale(1.04);
 }
 
 /* Text Block Overrides */
 .memory-item.text-block,
 .memory-item.quote-block {
-    background: var(--liquid-bg, rgba(12, 37, 24, 0.6));
-    backdrop-filter: var(--glass-blur, blur(24px));
-    -webkit-backdrop-filter: var(--glass-blur, blur(24px));
+    background: #ffffff;
     padding: 48px 28px;
     border-radius: var(--radius-lg, 28px);
 }
 
 .memory-item.text-block h3 {
-    font-family: var(--font-heading, 'Cormorant Garamond', serif);
-    font-size: 2.2rem;
-    font-weight: 500;
+    font-family: var(--font-heading, 'Plus Jakarta Sans', serif);
+    font-size: 2rem;
+    font-weight: 700;
     margin-bottom: 12px;
     line-height: 1.15;
-    color: var(--gold, #c6a87c);
-    text-shadow: 0 2px 10px rgba(198, 168, 124, 0.25);
+    color: var(--forest-primary, #1e3a2b);
+    text-shadow: none;
 }
 
 .memory-item.text-block .date {
     font-family: var(--font-body, 'Montserrat', sans-serif);
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: var(--text-muted, #8b9e93);
+    font-weight: 600;
+    color: var(--forest-accent, #2e533d);
 }
 
 .memory-item.quote-block p {
-    font-family: var(--font-heading, 'Cormorant Garamond', serif);
+    font-family: var(--font-serif, 'Cormorant Garamond', serif);
     font-style: italic;
-    font-size: 1.8rem;
+    font-size: 1.7rem;
     line-height: 1.4;
-    color: var(--text-cream, #eae5d9);
+    color: var(--forest-deep, #12241a);
 }
 
 .memory-item.text-block:hover,
 .memory-item.quote-block:hover {
-    transform: translateY(-8px);
+    transform: translateY(-6px);
 }

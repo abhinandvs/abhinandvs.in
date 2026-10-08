@@ -11,28 +11,26 @@
         .skills-wrapper {
             max-width: 1000px;
             margin: 0 auto;
-            padding: 160px 24px 100px;
+            padding: 140px 24px 100px;
         }
 
         .skills-page-header {
             text-align: center;
-            background: var(--liquid-bg);
+            background: var(--surface-card);
             border: var(--liquid-border);
             border-top: var(--liquid-border-top);
             border-radius: var(--radius-xl);
             padding: 50px 30px;
-            margin-bottom: 60px;
-            backdrop-filter: var(--glass-blur);
-            -webkit-backdrop-filter: var(--glass-blur);
+            margin-bottom: 50px;
             box-shadow: var(--liquid-shadow);
         }
 
         .skills-page-header h1 {
-            font-size: 3.8rem;
-            letter-spacing: 6px;
-            color: var(--gold);
+            font-size: 3.4rem;
+            letter-spacing: -0.02em;
+            color: var(--forest-primary);
             margin-bottom: 10px;
-            text-shadow: 0 4px 18px rgba(198, 168, 124, 0.25);
+            font-weight: 800;
         }
 
         .skills-page-header p {
@@ -40,25 +38,25 @@
             font-size: 0.85rem;
             letter-spacing: 3px;
             text-transform: uppercase;
+            font-weight: 600;
         }
 
         /* Category blocks */
         .skill-category {
-            margin-bottom: 45px;
-            background: var(--liquid-bg);
+            margin-bottom: 35px;
+            background: var(--surface-card);
             border: var(--liquid-border);
             border-top: var(--liquid-border-top);
             border-radius: var(--radius-lg);
             padding: 36px 40px;
-            backdrop-filter: var(--glass-blur);
-            -webkit-backdrop-filter: var(--glass-blur);
             box-shadow: var(--liquid-shadow);
             transition: all 0.35s ease;
         }
 
         .skill-category:hover {
-            border-color: rgba(198, 168, 124, 0.45);
+            border-color: rgba(30, 58, 43, 0.22);
             transform: translateY(-4px);
+            box-shadow: var(--liquid-shadow-hover);
         }
 
         .category-header {
@@ -67,73 +65,73 @@
             gap: 16px;
             margin-bottom: 24px;
             padding-bottom: 16px;
-            border-bottom: 1px solid rgba(198, 168, 124, 0.25);
+            border-bottom: 1px solid rgba(30, 58, 43, 0.1);
         }
 
         .category-header i {
-            font-size: 1.1rem;
-            color: var(--gold);
-            width: 44px;
-            height: 44px;
-            border: 1px solid rgba(198, 168, 124, 0.35);
-            border-top: 1px solid rgba(255, 255, 255, 0.4);
+            font-size: 1rem;
+            color: var(--forest-primary);
+            width: 42px;
+            height: 42px;
+            border: 1px solid rgba(30, 58, 43, 0.14);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
-            background: rgba(198, 168, 124, 0.1);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            background: var(--sage-pill);
         }
 
         .category-header h2 {
             font-family: var(--font-body);
-            font-size: 0.85rem;
-            letter-spacing: 4px;
+            font-size: 0.88rem;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            color: var(--gold);
-            font-weight: 500;
+            color: var(--forest-deep);
+            font-weight: 700;
         }
 
         /* Tech chips grid */
         .tech-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 14px;
+            gap: 12px;
         }
 
         .tech-chip {
             display: flex;
             align-items: center;
             gap: 10px;
-            padding: 12px 24px;
-            border: 1px solid rgba(198, 168, 124, 0.3);
-            border-top: 1px solid rgba(255, 255, 255, 0.35);
+            padding: 11px 22px;
+            border: 1px solid rgba(30, 58, 43, 0.14);
             border-radius: var(--radius-full);
-            color: var(--text-cream);
+            color: var(--forest-deep);
             font-family: var(--font-body);
             font-size: 0.84rem;
-            letter-spacing: 1px;
-            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-            background: rgba(7, 21, 14, 0.4);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            background: #ffffff;
             cursor: default;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+            box-shadow: 0 2px 8px rgba(22, 47, 33, 0.03);
         }
 
         .tech-chip i {
-            color: var(--gold);
+            color: var(--forest-accent);
             font-size: 0.95rem;
+            transition: color 0.3s ease;
         }
 
         .tech-chip:hover {
-            border-color: rgba(198, 168, 124, 0.6);
-            border-top-color: rgba(255, 255, 255, 0.7);
-            background: linear-gradient(135deg, rgba(198, 168, 124, 0.25) 0%, rgba(12, 37, 24, 0.6) 100%);
-            transform: translateY(-4px) scale(1.03);
-            color: var(--gold);
-            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35), 0 0 15px rgba(198, 168, 124, 0.25), inset 0 1px 2px rgba(255, 255, 255, 0.4);
+            border-color: var(--forest-primary);
+            background: var(--forest-primary);
+            transform: translateY(-3px);
+            color: #ffffff;
+            box-shadow: 0 8px 20px rgba(30, 58, 43, 0.2);
+        }
+
+        .tech-chip:hover i {
+            color: #ffffff;
         }
 
         @media (max-width: 600px) {

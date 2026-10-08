@@ -11,36 +11,35 @@
         .resume-wrapper {
             max-width: 880px;
             margin: 0 auto;
-            padding: 160px 24px 100px;
+            padding: 140px 24px 100px;
         }
 
         /* Resume header */
         .resume-header {
             text-align: center;
-            background: var(--liquid-bg);
+            background: var(--surface-card);
             border: var(--liquid-border);
             border-top: var(--liquid-border-top);
             border-radius: var(--radius-xl);
             padding: 50px 30px;
-            margin-bottom: 50px;
-            backdrop-filter: var(--glass-blur);
-            -webkit-backdrop-filter: var(--glass-blur);
+            margin-bottom: 45px;
             box-shadow: var(--liquid-shadow);
         }
 
         .resume-header h1 {
-            font-size: 3.5rem;
-            letter-spacing: 6px;
-            color: var(--gold);
+            font-size: 3.4rem;
+            letter-spacing: -0.02em;
+            color: var(--forest-primary);
             margin-bottom: 8px;
-            text-shadow: 0 4px 18px rgba(198, 168, 124, 0.25);
+            font-weight: 800;
         }
 
         .resume-header .title {
-            font-size: 1rem;
-            letter-spacing: 3px;
+            font-size: 0.95rem;
+            letter-spacing: 2.5px;
             text-transform: uppercase;
-            color: var(--text-muted);
+            color: var(--forest-accent);
+            font-weight: 600;
             margin-bottom: 24px;
         }
 
@@ -48,67 +47,68 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 16px;
+            gap: 14px;
             margin-top: 16px;
         }
 
         .resume-contact a, .resume-contact span {
-            color: var(--text-cream);
+            color: var(--forest-primary);
             text-decoration: none;
-            font-size: 0.85rem;
+            font-size: 0.84rem;
+            font-weight: 500;
             display: flex;
             align-items: center;
             gap: 8px;
             padding: 8px 18px;
             border-radius: var(--radius-full);
-            background: rgba(198, 168, 124, 0.08);
-            border: 1px solid rgba(198, 168, 124, 0.2);
+            background: var(--sage-pill);
+            border: 1px solid rgba(30, 58, 43, 0.12);
             transition: all 0.3s ease;
         }
 
         .resume-contact a:hover {
-            color: var(--gold);
-            border-color: var(--gold);
-            background: rgba(198, 168, 124, 0.16);
+            color: #ffffff;
+            border-color: var(--forest-primary);
+            background: var(--forest-primary);
             transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(30, 58, 43, 0.18);
         }
 
         /* Sections */
         .resume-section {
-            margin-bottom: 45px;
-            background: var(--liquid-bg);
+            margin-bottom: 40px;
+            background: var(--surface-card);
             border: var(--liquid-border);
             border-top: var(--liquid-border-top);
             border-radius: var(--radius-lg);
             padding: 40px;
-            backdrop-filter: var(--glass-blur);
-            -webkit-backdrop-filter: var(--glass-blur);
             box-shadow: var(--liquid-shadow);
             transition: transform 0.35s ease, border-color 0.35s ease;
         }
 
         .resume-section:hover {
-            border-color: rgba(198, 168, 124, 0.45);
+            border-color: rgba(30, 58, 43, 0.22);
             transform: translateY(-3px);
+            box-shadow: var(--liquid-shadow-hover);
         }
 
         .resume-section-title {
-            font-size: 1.35rem;
-            letter-spacing: 4px;
+            font-size: 1.25rem;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            color: var(--gold);
+            color: var(--forest-deep);
             font-family: var(--font-body);
-            font-weight: 500;
+            font-weight: 700;
             padding-bottom: 14px;
-            border-bottom: 1px solid rgba(198, 168, 124, 0.25);
-            margin-bottom: 28px;
+            border-bottom: 1px solid rgba(30, 58, 43, 0.1);
+            margin-bottom: 26px;
         }
 
         .resume-block {
-            margin-bottom: 30px;
+            margin-bottom: 24px;
             padding: 20px 24px;
-            background: rgba(7, 21, 14, 0.35);
-            border: 1px solid rgba(198, 168, 124, 0.15);
+            background: #fafbfa;
+            border: 1px solid rgba(30, 58, 43, 0.08);
             border-radius: var(--radius-md);
             transition: all 0.3s ease;
         }
@@ -118,8 +118,8 @@
         }
 
         .resume-block:hover {
-            border-color: rgba(198, 168, 124, 0.35);
-            background: rgba(12, 37, 24, 0.45);
+            border-color: rgba(30, 58, 43, 0.2);
+            background: #f4f8f5;
         }
 
         .resume-block-header {
@@ -132,27 +132,30 @@
         }
 
         .resume-block-header h3 {
-            font-size: 1.3rem;
-            color: var(--text-cream);
+            font-size: 1.25rem;
+            color: var(--forest-deep);
+            font-weight: 700;
         }
 
         .resume-block-header .date {
-            color: var(--gold);
-            font-size: 0.8rem;
-            letter-spacing: 2px;
+            color: var(--forest-primary);
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
             white-space: nowrap;
-            padding: 3px 12px;
+            padding: 4px 12px;
             border-radius: var(--radius-full);
-            background: rgba(198, 168, 124, 0.12);
-            border: 1px solid rgba(198, 168, 124, 0.25);
+            background: var(--sage-pill);
+            border: 1px solid rgba(30, 58, 43, 0.12);
         }
 
         .resume-block .org {
-            color: var(--text-muted);
-            font-size: 0.9rem;
+            color: var(--forest-accent);
+            font-size: 0.88rem;
+            font-weight: 500;
             margin-bottom: 12px;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
         }
 
         .resume-block ul {
@@ -164,7 +167,7 @@
         }
 
         .resume-block ul li {
-            color: var(--text-muted);
+            color: var(--text-body);
             font-size: 0.9rem;
             line-height: 1.7;
             padding-left: 20px;
@@ -175,19 +178,19 @@
             content: '✦';
             position: absolute;
             left: 0;
-            color: var(--gold);
+            color: var(--forest-accent);
             font-size: 0.6rem;
             top: 4px;
         }
 
         /* Summary */
         .resume-summary {
-            color: var(--text-cream);
+            color: var(--text-body);
             font-size: 0.98rem;
             line-height: 1.85;
-            border-left: 3px solid var(--gold);
+            border-left: 3px solid var(--forest-primary);
             padding: 16px 24px;
-            background: rgba(7, 21, 14, 0.35);
+            background: #fafbfa;
             border-radius: 0 var(--radius-md) var(--radius-md) 0;
         }
 
@@ -199,7 +202,7 @@
         }
 
         .skills-list li {
-            color: var(--text-muted);
+            color: var(--text-body);
             font-size: 0.9rem;
             line-height: 1.7;
             padding-left: 20px;
@@ -210,7 +213,7 @@
             content: '✦';
             position: absolute;
             left: 0;
-            color: var(--gold);
+            color: var(--forest-accent);
             font-size: 0.6rem;
             top: 4px;
         }
@@ -228,9 +231,10 @@
         }
 
         .lang-item strong {
-            color: var(--text-cream);
+            color: var(--forest-deep);
             font-size: 1rem;
             font-family: var(--font-heading);
+            font-weight: 700;
         }
 
         .lang-item span {

@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
-    <title>Abhinand V S | Royal Design</title>
+    <title>Abhinand V S | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles_royal.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -15,10 +18,10 @@
             <h1 class="gold-text">ABHINAND</h1>
             <p>Select your experience</p>
             <div class="entry-cards">
-                <button class="royal-btn" id="btn-personal">
+                <a href="memories.html" class="royal-btn" id="btn-personal">
                     <i class="far fa-user"></i>
                     <span>Personal</span>
-                </button>
+                </a>
                 <button id="btn-professional" class="royal-btn primary-btn">
                     <i class="fas fa-briefcase"></i>
                     <span>Portfolio</span>
@@ -43,7 +46,7 @@
         <div class="nav-links">
             <a href="#about">ABOUT</a>
             <a href="#skills">SKILLS</a>
-            <a href="#projects">PROJECTS</a>
+            <a href="projects.html">PROJECTS</a>
             <a href="#experience">EXPERIENCE</a>
         </div>
     </nav>
@@ -52,10 +55,10 @@
         <!-- Hero -->
         <section id="hero" class="hero-section">
             <div class="hero-text">
-                <h2>Embedded Systems Engineer</h2>
-                <h1>ABHINAND <span>VS</span></h1>
+                <h2><span class="typewriter-text">Embedded Systems Engineer</span><span class="typewriter-cursor">|</span></h2>
+                <h1 class="hero-name"><span class="typewriter-name-first">ABHINAND</span> <span class="typewriter-name-last">VS</span><span class="typewriter-name-cursor">|</span></h1>
                 <p>Crafting intuitive digital and physical experiences with strategy, beauty, and purpose.</p>
-                <a href="#projects" class="royal-btn primary-btn">Explore Work</a>
+                <a href="projects.html" class="royal-btn primary-btn">Explore Work</a>
             </div>
             <div class="hero-visual">
                 <div class="profile-frame">
@@ -84,59 +87,16 @@
                     <h3>Resume</h3>
                     <p>View my full CV — experience, skills, and education all in one place.</p>
                 </a>
-                <button class="royal-card coming-soon-trigger">
-                    <i class="fas fa-paint-brush"></i>
-                    <h3>Hobby Projects</h3>
-                    <p>Personal builds, creative experiments & side projects.</p>
-                </button>
+                <a href="projects.html" class="royal-card">
+                    <i class="fas fa-layer-group"></i>
+                    <h3>Projects</h3>
+                    <p>Personal builds, engineering projects & technical innovations.</p>
+                </a>
                 <a href="technical-skills.html" class="royal-card">
                     <i class="fas fa-microchip"></i>
                     <h3>Technical Skill</h3>
                     <p>Electronics, IoT, Wireless Comm, & Embedded Systems Engineering.</p>
                 </a>
-            </div>
-        </section>
-
-        <!-- Projects -->
-        <section id="projects">
-            <h2 class="section-title">Selected Work</h2>
-            <div class="grid-2">
-                <div class="royal-card project-card">
-                    <div class="project-img"><img src="assets/water_quality_hardware.jpg" alt="Project"></div>
-                    <div class="project-info">
-                        <h3>Water Quality System</h3>
-                        <span class="badge">May 2024</span>
-                        <p>Embedded edge processing system for real-time water quality monitoring in rural areas.</p>
-                        <a href="https://drive.google.com/file/d/16m-Tt6e4SaIqqy_hrV3nV_n7e0vEHEaD/view" target="_blank" class="royal-btn"><i class="fas fa-file-alt"></i> View Paper</a>
-                    </div>
-                </div>
-                <div class="royal-card project-card">
-                    <div class="project-img"><img src="assets/handwritten_text_recognition.png" alt="Project"></div>
-                    <div class="project-info">
-                        <h3>Handwritten Recognition</h3>
-                        <span class="badge">May 2023</span>
-                        <p>AI/ML project focused on recognizing and processing handwritten text inputs.</p>
-                        <a href="https://www.linkedin.com/posts/abhinand-v-s-8479b6273" target="_blank" class="royal-btn"><i class="fab fa-linkedin"></i> View Project</a>
-                    </div>
-                </div>
-                <div class="royal-card project-card">
-                    <div class="project-img"><img src="assets/solar_tracker.jpg" alt="Project"></div>
-                    <div class="project-info">
-                        <h3>Automated Solar Tracker</h3>
-                        <span class="badge">Feb 2023</span>
-                        <p>Automated system with advanced weather monitoring capabilities.</p>
-                        <a href="https://drive.google.com/file/d/1M_nu6NBl82wjya49DZ3zQROCpj9blwap/view" target="_blank" class="royal-btn"><i class="fas fa-file-pdf"></i> View Report</a>
-                    </div>
-                </div>
-                <div class="royal-card project-card">
-                    <div class="project-img"><img src="assets/blind_walking_stick.jpg" alt="Project"></div>
-                    <div class="project-info">
-                        <h3>Ultra Sonic Blind Stick</h3>
-                        <span class="badge">May 2021</span>
-                        <p>Innovative walking aid system using ultrasonic sensors for the visually impaired.</p>
-                        <a href="https://drive.google.com/file/d/1HjLTAP93hLOrNuGGlTsJh14br4y6Me6K/view" target="_blank" class="royal-btn"><i class="fas fa-file-pdf"></i> View Project</a>
-                    </div>
-                </div>
             </div>
         </section>
 

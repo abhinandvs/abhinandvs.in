@@ -31,11 +31,11 @@
             position: fixed;
             bottom: 30px;
             left: 30px;
-            background: transparent;
-            border: 1px solid #C6A87C;
-            color: #C6A87C;
-            width: 45px;
-            height: 45px;
+            background: #ffffff;
+            border: 1px solid rgba(30, 58, 43, 0.2);
+            color: var(--forest-primary, #1e3a2b);
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
             display: flex;
             justify-content: center;
@@ -43,8 +43,8 @@
             text-decoration: none;
             font-size: 1rem;
             z-index: 2000;
-            transition: all 0.4s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: all 0.35s ease;
+            box-shadow: 0 8px 24px rgba(22, 47, 33, 0.08);
         }
 
         .page-switch-btn span {
@@ -52,9 +52,10 @@
         }
 
         .page-switch-btn:hover {
-            background: #C6A87C;
-            color: #0A1E14;
+            background: var(--forest-primary, #1e3a2b);
+            color: #ffffff;
             transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(30, 58, 43, 0.2);
         }
     </style>
 

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Abhinand V S</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles_royal.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .projects-wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 140px 24px 100px;
+        }
+
+        .projects-page-header {
+            text-align: center;
+            background: var(--surface-card);
+            border: var(--liquid-border);
+            border-top: var(--liquid-border-top);
+            border-radius: var(--radius-xl);
+            padding: 50px 30px;
+            margin-bottom: 50px;
+            box-shadow: var(--liquid-shadow);
+        }
+
+        .projects-page-header h1 {
+            font-size: 3.4rem;
+            letter-spacing: -0.02em;
+            color: var(--forest-primary);
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+
+        .projects-page-header p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .project-card {
+            background: #ffffff;
+            border: var(--liquid-border);
+            border-top: var(--liquid-border-top);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--liquid-shadow);
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(30, 58, 43, 0.22);
+            box-shadow: var(--liquid-shadow-hover);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 260px;
+            overflow: hidden;
+            position: relative;
+            background: var(--surface-subtle);
+            border-bottom: 1px solid rgba(30, 58, 43, 0.08);
+        }
+
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .project-card:hover .project-img img {
+            transform: scale(1.06);
+        }
+
+        .project-info {
+            padding: 34px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 16px;
+            flex: 1;
+            justify-content: space-between;
+        }
+
+        .project-info-top {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 12px;
+            width: 100%;
+        }
+
+        .project-info h3 {
+            font-size: 1.55rem;
+            font-weight: 700;
+            color: var(--forest-deep);
+            letter-spacing: -0.01em;
+            margin: 0;
+        }
+
+        .project-info p {
+            color: var(--text-muted);
+            font-size: 0.94rem;
+            line-height: 1.65;
+            margin: 0;
+        }
+
+        @media (max-width: 600px) {
+            .projects-page-header h1 { font-size: 2.5rem; }
+            .projects-wrapper { padding: 110px 16px 80px; }
+            .project-info { padding: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Back to Portfolio Switch Button -->
+    <a href="index.html" class="page-switch-btn" title="Back to Portfolio">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+
+    <div class="projects-wrapper">
+
+        <!-- Header -->
+        <div class="projects-page-header">
+            <h1>Featured Projects</h1>
+            <p>Embedded systems, AI algorithms & hardware engineering</p>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="grid-2">
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="assets/water_quality_hardware.jpg" alt="Water Quality System">
+                </div>
+                <div class="project-info">
+                    <div class="project-info-top">
+                        <span class="badge">May 2024</span>
+                        <h3>Water Quality System</h3>
+                        <p>Embedded edge processing system designed for real-time water quality monitoring in rural and underserved areas.</p>
+                    </div>
+                    <a href="https://drive.google.com/file/d/16m-Tt6e4SaIqqy_hrV3nV_n7e0vEHEaD/view" target="_blank" class="royal-btn">
+                        <i class="fas fa-file-alt"></i> View Paper
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="assets/handwritten_text_recognition.png" alt="Handwritten Recognition">
+                </div>
+                <div class="project-info">
+                    <div class="project-info-top">
+                        <span class="badge">May 2023</span>
+                        <h3>Handwritten Recognition</h3>
+                        <p>AI/ML project focused on recognizing and processing complex handwritten text inputs with deep learning models.</p>
+                    </div>
+                    <a href="https://www.linkedin.com/posts/abhinand-v-s-8479b6273" target="_blank" class="royal-btn">
+                        <i class="fab fa-linkedin"></i> View Project
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="assets/solar_tracker.jpg" alt="Automated Solar Tracker">
+                </div>
+                <div class="project-info">
+                    <div class="project-info-top">
+                        <span class="badge">Feb 2023</span>
+                        <h3>Automated Solar Tracker</h3>
+                        <p>Dual-axis automated solar tracking system integrated with environmental weather monitoring capabilities for maximized yield.</p>
+                    </div>
+                    <a href="https://drive.google.com/file/d/1M_nu6NBl82wjya49DZ3zQROCpj9blwap/view" target="_blank" class="royal-btn">
+                        <i class="fas fa-file-pdf"></i> View Report
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="assets/blind_walking_stick.jpg" alt="Ultra Sonic Blind Stick">
+                </div>
+                <div class="project-info">
+                    <div class="project-info-top">
+                        <span class="badge">May 2021</span>
+                        <h3>Ultra Sonic Blind Stick</h3>
+                        <p>Smart assistive walking aid system utilizing ultrasonic obstacle detection and haptic alerts for visually impaired individuals.</p>
+                    </div>
+                    <a href="https://drive.google.com/file/d/1HjLTAP93hLOrNuGGlTsJh14br4y6Me6K/view" target="_blank" class="royal-btn">
+                        <i class="fas fa-file-pdf"></i> View Project
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
