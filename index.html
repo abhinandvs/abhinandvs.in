@@ -12,20 +12,40 @@
 </head>
 <body class="entry-active">
 
-    <!-- Entry Portal -->
+    <!-- Entry Portal / Launch Page -->
     <div id="entry-portal">
-        <div class="entry-content">
-            <h1 class="gold-text">ABHINAND</h1>
-            <p>Select your experience</p>
-            <div class="entry-cards">
-                <a href="memories.html" class="royal-btn" id="btn-personal">
-                    <i class="far fa-user"></i>
-                    <span>Personal</span>
-                </a>
-                <button id="btn-professional" class="royal-btn primary-btn">
-                    <i class="fas fa-briefcase"></i>
-                    <span>Portfolio</span>
-                </button>
+        <!-- Dynamic Fluid Blur Mesh Background (White & Forest Green Theme) -->
+        <div class="portal-blur-mesh">
+            <div class="portal-orb portal-orb-1"></div>
+            <div class="portal-orb portal-orb-2"></div>
+            <div class="portal-orb portal-orb-3"></div>
+            <div class="portal-orb portal-orb-4"></div>
+        </div>
+
+        <div class="entry-card-container">
+            <div class="entry-content" id="portal-card">
+                <!-- Launch Logo with Animated Ambient Aura & Orbital Ring -->
+                <div class="portal-logo-wrapper">
+                    <div class="logo-ambient-aura"></div>
+                    <div class="logo-ring"></div>
+                    <img src="assets/logo_transparent.png" alt="Abhinand Logo" class="portal-logo-img">
+                </div>
+
+                <div class="portal-brand-text">
+                    <h1 class="gold-text">ABHINAND</h1>
+                    <span class="portal-badge">PORTFOLIO & ARCHIVE</span>
+                </div>
+
+                <div class="entry-cards">
+                    <a href="memories.html" class="royal-btn portal-btn-secondary" id="btn-personal">
+                        <i class="far fa-user"></i>
+                        <span>Personal</span>
+                    </a>
+                    <button id="btn-professional" class="royal-btn primary-btn portal-btn-primary">
+                        <i class="fas fa-briefcase"></i>
+                        <span>Portfolio</span>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -39,9 +59,8 @@
     <!-- Main Navigation -->
     <nav class="royal-nav">
         <div class="nav-brand">
-            <i class="fas fa-star"></i>
+            <img src="assets/logo_transparent.png" alt="Logo" class="nav-brand-logo">
             <span class="nav-logo">ABHINAND</span>
-            <i class="fas fa-star"></i>
         </div>
         <div class="nav-links">
             <a href="#about">ABOUT</a>
