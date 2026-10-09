@@ -106,46 +106,13 @@ document.addEventListener('DOMContentLoaded', () => {
         heroObserver.observe(heroSection);
     }
 
-    // Professional Button → enter portfolio with cinematic blur exit transition
+    // Professional Button → enter portfolio
     const btnProfessional = document.getElementById('btn-professional');
-    const entryPortal = document.getElementById('entry-portal');
-    const portalCard = document.getElementById('portal-card');
 
-    if (btnProfessional && entryPortal) {
+    if (btnProfessional) {
         btnProfessional.addEventListener('click', () => {
-            entryPortal.classList.add('portal-exiting');
-            setTimeout(() => {
-                document.body.classList.remove('entry-active');
-                entryPortal.classList.remove('portal-exiting');
-                activateHero();
-            }, 550);
-        });
-    }
-
-    // Interactive 3D Mouse Parallax Tilt for Portal Card
-    if (portalCard && entryPortal) {
-        let tiltFrame = null;
-        entryPortal.addEventListener('mousemove', (e) => {
-            if (!document.body.classList.contains('entry-active')) return;
-            if (tiltFrame) cancelAnimationFrame(tiltFrame);
-
-            tiltFrame = requestAnimationFrame(() => {
-                const rect = portalCard.getBoundingClientRect();
-                const cardCenterX = rect.left + rect.width / 2;
-                const cardCenterY = rect.top + rect.height / 2;
-
-                const percentX = (e.clientX - cardCenterX) / (window.innerWidth / 2);
-                const percentY = (e.clientY - cardCenterY) / (window.innerHeight / 2);
-
-                const tiltX = -(percentY * 8).toFixed(2);
-                const tiltY = (percentX * 8).toFixed(2);
-
-                portalCard.style.transform = `rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateY(-3px)`;
-            });
-        });
-
-        entryPortal.addEventListener('mouseleave', () => {
-            portalCard.style.transform = 'rotateX(0deg) rotateY(0deg) translateY(0)';
+            document.body.classList.remove('entry-active');
+            activateHero();
         });
     }
 
@@ -173,9 +140,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (switchBtn) {
         switchBtn.addEventListener('click', () => {
             deactivateHero();
-            if (portalCard) {
-                portalCard.style.transform = 'rotateX(0deg) rotateY(0deg) translateY(0)';
-            }
             document.body.classList.add('entry-active');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });

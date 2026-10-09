@@ -14,26 +14,16 @@
 
     <!-- Entry Portal / Launch Page -->
     <div id="entry-portal">
-        <!-- Dynamic Fluid Blur Mesh Background (White & Forest Green Theme) -->
-        <div class="portal-blur-mesh">
-            <div class="portal-orb portal-orb-1"></div>
-            <div class="portal-orb portal-orb-2"></div>
-            <div class="portal-orb portal-orb-3"></div>
-            <div class="portal-orb portal-orb-4"></div>
-        </div>
-
+        <canvas id="portal-particles" class="portal-particles-canvas"></canvas>
         <div class="entry-card-container">
             <div class="entry-content" id="portal-card">
-                <!-- Launch Logo with Animated Ambient Aura & Orbital Ring -->
+                <!-- Clean Logo (no circles or effects) -->
                 <div class="portal-logo-wrapper">
-                    <div class="logo-ambient-aura"></div>
-                    <div class="logo-ring"></div>
                     <img src="assets/logo_transparent.png" alt="Abhinand Logo" class="portal-logo-img">
                 </div>
 
                 <div class="portal-brand-text">
                     <h1 class="gold-text">ABHINAND</h1>
-                    <span class="portal-badge">PORTFOLIO & ARCHIVE</span>
                 </div>
 
                 <div class="entry-cards">
@@ -147,6 +137,7 @@
         <i class="fas fa-exchange-alt"></i><span> Switch</span>
     </button>
 
+    <script src="gemini-particles.js"></script>
     <script src="script_glass.js"></script>
 </body>
 </html>
