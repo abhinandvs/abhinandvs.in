@@ -1,10 +1,9 @@
 /**
- * Gemini Wave Particle System - Emerald & Sage Green Edition
- * Inspired by Google Gemini's signature undulating particle wave field
- * Refined for Abhinand V S:
+ * Gemini Wave Particle System - Emerald & Sage Green DOT Edition
+ * Features:
+ * - 100% Circular Dot Particles (clean, refined stardust & wave constellation)
+ * - Harmonious Forest Green, Emerald, Jade, Sage & Mint palette
  * - Fluid ultra-smooth, slow multi-harmonic wave ribbons
- * - Royal Forest Green & Sage Green palette
- * - Dual particle geometry: Tangent-oriented capsules & stardust dots
  * - Silky real-time mouse physics: Soft repulsion cushion, organic spring damping, and parallax tilt
  * - High-DPI retina display support & 60+ FPS optimized canvas rendering
  */
@@ -54,14 +53,15 @@
             // Ripples from clicks / interactions
             this.ripples = [];
 
-            // Green Theme Palette (Forest Green, Emerald, Jade, Sage & Mint)
+            // Green Theme Palette (Forest Green, Emerald, Jade, Sage, Mint & Celadon)
             this.palette = [
                 { r: 30,  g: 58,  b: 43  },  // Forest Primary #1e3a2b
                 { r: 46,  g: 83,  b: 61  },  // Emerald Accent #2e533d
-                { r: 40,  g: 118, b: 78  },  // Radiant Jade #28764e
-                { r: 63,  g: 140, b: 98  },  // Luminous Leaf #3f8c62
-                { r: 88,  g: 168, b: 125 },  // Vibrant Sage #58a87d
-                { r: 125, g: 192, b: 154 }   // Soft Mint Celadon #7dc09a
+                { r: 38,  g: 122, b: 80  },  // Radiant Jade #267a50
+                { r: 52,  g: 152, b: 102 },  // Leaf Green #349866
+                { r: 76,  g: 175, b: 124 },  // Vibrant Sage #4caf7c
+                { r: 110, g: 195, b: 150 },  // Soft Mint #6ec396
+                { r: 152, g: 218, b: 184 }   // Pale Celadon #98dab8
             ];
 
             this.init();
@@ -105,12 +105,12 @@
                     amplitude: 48,
                     freq1: 0.0020,
                     freq2: 0.0044,
-                    speed: 0.32, // Very slow
+                    speed: 0.32,
                     phase: 0.2,
-                    particleCount: 56,
+                    particleCount: 70,
                     colorIndex: 0,
-                    alphaBase: 0.35,
-                    sizeScale: 0.75
+                    alphaBase: 0.38,
+                    radiusBase: 1.8
                 },
                 {
                     depth: 0.70,
@@ -120,10 +120,10 @@
                     freq2: 0.0050,
                     speed: 0.42,
                     phase: 1.5,
-                    particleCount: 72,
+                    particleCount: 88,
                     colorIndex: 1,
-                    alphaBase: 0.52,
-                    sizeScale: 0.90
+                    alphaBase: 0.55,
+                    radiusBase: 2.2
                 },
                 {
                     depth: 0.85,
@@ -133,10 +133,10 @@
                     freq2: 0.0058,
                     speed: 0.52,
                     phase: 3.0,
-                    particleCount: 90,
+                    particleCount: 108,
                     colorIndex: 2,
-                    alphaBase: 0.70,
-                    sizeScale: 1.05
+                    alphaBase: 0.72,
+                    radiusBase: 2.6
                 },
                 {
                     depth: 1.0,
@@ -146,10 +146,10 @@
                     freq2: 0.0066,
                     speed: 0.62,
                     phase: 4.4,
-                    particleCount: 104,
-                    colorIndex: 3,
-                    alphaBase: 0.86,
-                    sizeScale: 1.20
+                    particleCount: 122,
+                    colorIndex: 4,
+                    alphaBase: 0.88,
+                    radiusBase: 3.1
                 },
                 {
                     depth: 1.15,
@@ -159,10 +159,10 @@
                     freq2: 0.0074,
                     speed: 0.72,
                     phase: 5.7,
-                    particleCount: 82,
-                    colorIndex: 4,
-                    alphaBase: 0.78,
-                    sizeScale: 1.15
+                    particleCount: 98,
+                    colorIndex: 5,
+                    alphaBase: 0.80,
+                    radiusBase: 3.3
                 }
             ];
         }
@@ -172,18 +172,16 @@
 
             this.tracks.forEach((track, trackIdx) => {
                 const count = Math.round(track.particleCount * (this.width / 1200));
-                const total = Math.max(count, 42);
+                const total = Math.max(count, 50);
 
                 for (let i = 0; i < total; i++) {
                     const u = i / (total - 1); // 0 to 1 across screen width
-                    const jitterX = (Math.random() - 0.5) * (this.width / total * 0.75);
+                    const jitterX = (Math.random() - 0.5) * (this.width / total * 0.8);
 
-                    // Gemini style: ~65% oriented capsule dashes, ~35% stardust dots
-                    const isCapsule = Math.random() > 0.32;
-                    const dashLength = isCapsule ? (5 + Math.random() * 5.5) * track.sizeScale : 0;
-                    const thickness = (2.0 + Math.random() * 1.5) * track.sizeScale;
+                    // Pure circular dots with organic radius variations
+                    const radius = (track.radiusBase * (0.8 + Math.random() * 0.45));
 
-                    const color = this.palette[(track.colorIndex + (Math.random() > 0.65 ? 1 : 0)) % this.palette.length];
+                    const color = this.palette[(track.colorIndex + (Math.random() > 0.6 ? 1 : 0)) % this.palette.length];
                     const alpha = track.alphaBase * (0.7 + Math.random() * 0.3);
 
                     this.particles.push({
@@ -191,17 +189,14 @@
                         track: track,
                         u: u,
                         jitterX: jitterX,
-                        jitterY: (Math.random() - 0.5) * 16 * track.sizeScale,
-                        isCapsule: isCapsule,
-                        dashLength: dashLength,
-                        thickness: thickness,
+                        jitterY: (Math.random() - 0.5) * 16,
+                        radius: radius,
                         color: color,
                         alpha: alpha,
                         
                         // Physics state
                         x: 0,
                         y: 0,
-                        angle: 0,
                         dispX: 0,
                         dispY: 0,
                         vx: 0,
@@ -218,18 +213,18 @@
 
         createAmbientParticles() {
             this.ambientParticles = [];
-            const count = Math.round(26 * (this.width / 1200));
+            const count = Math.round(30 * (this.width / 1200));
 
             for (let i = 0; i < count; i++) {
                 this.ambientParticles.push({
                     x: Math.random() * this.width,
                     y: Math.random() * this.height,
                     vx: (Math.random() - 0.5) * 0.12,
-                    vy: -0.06 - Math.random() * 0.14, // slow upward drift
-                    radius: 1.2 + Math.random() * 1.6,
+                    vy: -0.06 - Math.random() * 0.14,
+                    radius: 1.2 + Math.random() * 1.8,
                     color: this.palette[Math.floor(Math.random() * this.palette.length)],
                     alpha: 0.18 + Math.random() * 0.35,
-                    pulseSpeed: 0.4 + Math.random() * 0.6, // gentle breathing
+                    pulseSpeed: 0.4 + Math.random() * 0.6,
                     pulsePhase: Math.random() * Math.PI * 2
                 });
             }
@@ -251,13 +246,7 @@
             const baseY = this.height * track.baseYRatio;
             const y = baseY + wave1 + wave2 + wave3 - edgeArch;
 
-            // Tangent derivative for capsule angle
-            const dx = 5;
-            const dy = (Math.cos(nx * track.freq1 + t * track.speed + track.phase) * track.freq1 * track.amplitude -
-                        Math.sin(nx * track.freq2 - t * track.speed * 0.65 + track.phase * 0.5) * track.freq2 * (track.amplitude * 0.38)) * dx;
-            const angle = Math.atan2(dy, dx);
-
-            return { y, angle };
+            return y;
         }
 
         bindEvents() {
@@ -292,7 +281,7 @@
                     radius: 5,
                     maxRadius: 260,
                     strength: 24,
-                    speed: 4.5, // Slow gentle propagation
+                    speed: 4.5,
                     life: 1.0
                 });
             };
@@ -336,7 +325,7 @@
             if (this.mouse.active) {
                 const dx = this.mouse.targetX - this.mouse.x;
                 const dy = this.mouse.targetY - this.mouse.y;
-                this.mouse.vx = dx * 0.11; // Softer lerp for butter-smooth tracking
+                this.mouse.vx = dx * 0.11;
                 this.mouse.vy = dy * 0.11;
                 this.mouse.x += this.mouse.vx;
                 this.mouse.y += this.mouse.vy;
@@ -369,13 +358,13 @@
             const damping = 0.91;
             const mouseRadiusSq = this.mouse.radius * this.mouse.radius;
 
-            // Update wave particles
+            // Update wave dot particles
             this.particles.forEach((p) => {
                 // Base horizontal coordinate
                 const baseX = p.u * this.width + p.jitterX;
                 
                 // Track wave position
-                const waveInfo = this.computeWavePoint(baseX, this.time, p.track);
+                const waveY = this.computeWavePoint(baseX, this.time, p.track);
                 
                 // Parallax depth offset
                 const depthOffsetX = this.parallax.x * (p.track.depth * 0.85);
@@ -385,7 +374,7 @@
                 const microY = Math.sin(this.time * p.microFreq + p.microPhase) * p.microAmp;
 
                 const targetBaseX = baseX + depthOffsetX;
-                const targetBaseY = waveInfo.y + p.jitterY + depthOffsetY + microY;
+                const targetBaseY = waveY + p.jitterY + depthOffsetY + microY;
 
                 // Mouse interaction repulsion & lift (cushioned & organic)
                 if (this.mouse.active) {
@@ -447,13 +436,9 @@
                 // Final particle coordinates
                 p.x = targetBaseX + p.dispX;
                 p.y = targetBaseY + p.dispY;
-
-                // Dynamic angle: follows wave tangent + particle movement velocity tilt
-                const velocityTilt = Math.atan2(p.vy + Math.sin(waveInfo.angle) * 1.5, p.vx + Math.cos(waveInfo.angle) * 1.5);
-                p.angle = waveInfo.angle * 0.78 + velocityTilt * 0.22;
             });
 
-            // Update ambient particles
+            // Update ambient stardust particles
             this.ambientParticles.forEach((ap) => {
                 ap.x += ap.vx;
                 ap.y += ap.vy;
@@ -483,7 +468,7 @@
         render() {
             this.ctx.clearRect(0, 0, this.width, this.height);
 
-            // 1. Render ambient floating stardust
+            // 1. Render ambient floating stardust dots
             for (let i = 0; i < this.ambientParticles.length; i++) {
                 const ap = this.ambientParticles[i];
                 const pulse = Math.sin(this.time * ap.pulseSpeed + ap.pulsePhase) * 0.2;
@@ -495,60 +480,32 @@
                 this.ctx.fill();
             }
 
-            // 2. Render wave particles (dashes & dots) in Forest & Sage Green
+            // 2. Render wave dot particles in Forest & Sage Green
             const len = this.particles.length;
             for (let i = 0; i < len; i++) {
                 const p = this.particles[i];
 
                 // Screen cull check
-                if (p.x < -30 || p.x > this.width + 30 || p.y < -30 || p.y > this.height + 30) {
+                if (p.x < -20 || p.x > this.width + 20 || p.y < -20 || p.y > this.height + 20) {
                     continue;
                 }
-
-                this.ctx.save();
-                this.ctx.translate(p.x, p.y);
-                this.ctx.rotate(p.angle);
 
                 const c = p.color;
                 const alpha = p.alpha;
 
-                if (p.isCapsule && p.dashLength > 0) {
-                    // True Gemini pill/capsule dash with rounded caps
-                    const halfLen = p.dashLength * 0.5;
-                    this.ctx.lineWidth = p.thickness;
-                    this.ctx.lineCap = 'round';
-                    this.ctx.strokeStyle = `rgba(${c.r}, ${c.g}, ${c.b}, ${alpha})`;
+                // Circular Dot Particle
+                this.ctx.fillStyle = `rgba(${c.r}, ${c.g}, ${c.b}, ${alpha})`;
+                this.ctx.beginPath();
+                this.ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                this.ctx.fill();
 
+                // Mint/Sage specular center highlight on prominent front dots
+                if (alpha > 0.65 && p.track.depth >= 0.85) {
+                    this.ctx.fillStyle = `rgba(235, 252, 242, ${alpha * 0.65})`;
                     this.ctx.beginPath();
-                    this.ctx.moveTo(-halfLen, 0);
-                    this.ctx.lineTo(halfLen, 0);
-                    this.ctx.stroke();
-
-                    // Mint/Sage specular core highlight on prominent front particles
-                    if (alpha > 0.65 && p.track.depth >= 0.85) {
-                        this.ctx.lineWidth = p.thickness * 0.45;
-                        this.ctx.strokeStyle = `rgba(235, 252, 242, ${alpha * 0.55})`;
-                        this.ctx.beginPath();
-                        this.ctx.moveTo(-halfLen * 0.5, 0);
-                        this.ctx.lineTo(halfLen * 0.5, 0);
-                        this.ctx.stroke();
-                    }
-                } else {
-                    // Stardust dot particle
-                    this.ctx.fillStyle = `rgba(${c.r}, ${c.g}, ${c.b}, ${alpha})`;
-                    this.ctx.beginPath();
-                    this.ctx.arc(0, 0, p.thickness * 0.75, 0, Math.PI * 2);
+                    this.ctx.arc(p.x, p.y, p.radius * 0.45, 0, Math.PI * 2);
                     this.ctx.fill();
-
-                    if (alpha > 0.65) {
-                        this.ctx.fillStyle = `rgba(235, 252, 242, ${alpha * 0.6})`;
-                        this.ctx.beginPath();
-                        this.ctx.arc(0, 0, p.thickness * 0.35, 0, Math.PI * 2);
-                        this.ctx.fill();
-                    }
                 }
-
-                this.ctx.restore();
             }
         }
 
