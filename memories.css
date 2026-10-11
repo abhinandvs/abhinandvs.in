@@ -11,14 +11,14 @@ body {
 
 .page-header {
     text-align: center;
-    padding: 120px 20px 40px;
+    padding: 90px 16px 30px;
     position: relative;
     z-index: 2;
 }
 
 .page-title {
     font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
-    font-size: 3.6rem;
+    font-size: clamp(2.2rem, 8vw, 3.6rem);
     font-weight: 800;
     letter-spacing: -0.02em;
     color: var(--forest-primary, #1e3a2b);

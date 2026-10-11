@@ -111,6 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (btnProfessional) {
         btnProfessional.addEventListener('click', () => {
+            closeMobileMenu();
             document.body.classList.remove('entry-active');
             activateHero();
         });
@@ -139,30 +140,116 @@ document.addEventListener('DOMContentLoaded', () => {
     const switchBtn = document.getElementById('switch-to-portal');
     if (switchBtn) {
         switchBtn.addEventListener('click', () => {
+            closeMobileMenu();
             deactivateHero();
             document.body.classList.add('entry-active');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
 
+    // Mobile Hamburger Menu Toggle
+    const navToggle = document.getElementById('nav-toggle');
+    const royalNav = document.getElementById('royal-nav') || document.querySelector('.royal-nav');
+    const navBackdrop = document.getElementById('nav-backdrop');
+    const navLinksContainer = document.getElementById('nav-menu') || document.querySelector('.nav-links');
+
+    function closeMobileMenu() {
+        if (royalNav && royalNav.classList.contains('menu-open')) {
+            royalNav.classList.remove('menu-open');
+            if (navToggle) {
+                navToggle.classList.remove('is-active');
+                navToggle.setAttribute('aria-expanded', 'false');
+            }
+            if (navBackdrop) {
+                navBackdrop.classList.remove('is-active');
+            }
+        }
+    }
+
+    function toggleMobileMenu() {
+        if (!royalNav) return;
+        const isOpen = royalNav.classList.contains('menu-open');
+        if (isOpen) {
+            closeMobileMenu();
+        } else {
+            royalNav.classList.add('menu-open');
+            if (navToggle) {
+                navToggle.classList.add('is-active');
+                navToggle.setAttribute('aria-expanded', 'true');
+            }
+            if (navBackdrop) {
+                navBackdrop.classList.add('is-active');
+            }
+        }
+    }
+
+    if (navToggle) {
+        navToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleMobileMenu();
+        });
+    }
+
+    if (navBackdrop) {
+        navBackdrop.addEventListener('click', () => {
+            closeMobileMenu();
+        });
+    }
+
+    // Close when clicking outside of nav
+    document.addEventListener('click', (e) => {
+        if (royalNav && royalNav.classList.contains('menu-open')) {
+            if (!royalNav.contains(e.target) && (!navToggle || !navToggle.contains(e.target))) {
+                closeMobileMenu();
+            }
+        }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeMobileMenu();
+        }
+    });
+
+    // Reset menu state on desktop breakpoint resize
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 900) {
+            closeMobileMenu();
+        }
+    });
+
     // Smooth anchor navigation
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             
+            // Close mobile menu on click
+            closeMobileMenu();
+
             const targetId = this.getAttribute('href');
             if (targetId === '#') return;
             
             const targetElement = document.querySelector(targetId);
             
             if (targetElement) {
+                const navOffset = window.innerWidth <= 900 ? 76 : 100;
                 window.scrollTo({
-                    top: targetElement.offsetTop - 100,
+                    top: Math.max(0, targetElement.offsetTop - navOffset),
                     behavior: 'smooth'
                 });
             }
         });
     });
+
+    // Also close mobile menu if an outbound link is clicked
+    if (navLinksContainer) {
+        navLinksContainer.querySelectorAll('a:not([href^="#"])').forEach(link => {
+            link.addEventListener('click', () => {
+                closeMobileMenu();
+            });
+        });
+    }
 
     // Intersection observer to highlight nav links on scroll
     const sections = document.querySelectorAll('section');

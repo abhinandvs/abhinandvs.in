@@ -47,18 +47,24 @@
     </div>
 
     <!-- Main Navigation -->
-    <nav class="royal-nav">
+    <nav class="royal-nav" id="royal-nav">
         <div class="nav-brand">
             <img src="assets/logo_transparent.png" alt="Logo" class="nav-brand-logo">
             <span class="nav-logo">ABHINAND</span>
         </div>
-        <div class="nav-links">
+        <button class="nav-hamburger" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" type="button">
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+        </button>
+        <div class="nav-links" id="nav-menu">
             <a href="#about">ABOUT</a>
             <a href="#skills">SKILLS</a>
             <a href="projects.html">PROJECTS</a>
             <a href="#experience">EXPERIENCE</a>
         </div>
     </nav>
+    <div class="nav-backdrop" id="nav-backdrop"></div>
 
     <main class="container">
         <!-- Hero -->
