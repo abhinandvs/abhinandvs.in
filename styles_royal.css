@@ -66,40 +66,135 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* Atmospheric Ambient Glowing Orbs - Subtle Sage & Mist */
-body::before,
-body::after {
-    content: '';
+/* Google Gemini-Style Atmospheric Blurred Background Animation */
+.gemini-bg-mesh {
     position: fixed;
-    border-radius: 50%;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
     pointer-events: none;
     z-index: 0;
-    filter: blur(120px);
-    opacity: 0.55;
-    animation: liquidDrift 20s ease-in-out infinite alternate;
 }
 
-body::before {
-    width: 650px;
-    height: 650px;
-    top: -120px;
-    right: -100px;
-    background: radial-gradient(circle, rgba(46, 83, 61, 0.08) 0%, rgba(135, 175, 145, 0.04) 50%, transparent 75%);
+.gemini-bg-mesh .mesh-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(75px);
+    opacity: 0.72;
+    mix-blend-mode: multiply;
+    will-change: transform;
 }
 
-body::after {
-    width: 750px;
-    height: 750px;
-    bottom: -150px;
-    left: -150px;
-    background: radial-gradient(circle, rgba(62, 110, 82, 0.07) 0%, rgba(200, 225, 210, 0.04) 50%, transparent 80%);
-    animation-delay: -10s;
+/* Luminous Mint-Jade Glow (Center-Top Flow) */
+.gemini-bg-mesh .mesh-orb-1 {
+    width: 65vw;
+    height: 55vh;
+    top: -12vh;
+    left: 8vw;
+    background: radial-gradient(circle, rgba(98, 222, 148, 0.76) 0%, rgba(142, 230, 180, 0.48) 45%, rgba(205, 246, 222, 0.2) 72%, transparent 85%);
+    animation: geminiOrbit1 9s ease-in-out infinite alternate;
 }
 
-@keyframes liquidDrift {
-    0% { transform: translate(0, 0) scale(1); }
-    50% { transform: translate(50px, 35px) scale(1.08); }
-    100% { transform: translate(-30px, 60px) scale(0.96); }
+/* Warm Golden Sunbeam Yellow (Top-Right) */
+.gemini-bg-mesh .mesh-orb-2 {
+    width: 65vw;
+    height: 60vh;
+    top: -15vh;
+    right: 5vw;
+    background: radial-gradient(circle, rgba(255, 224, 98, 0.78) 0%, rgba(255, 236, 148, 0.5) 45%, rgba(255, 248, 200, 0.2) 72%, transparent 85%);
+    animation: geminiOrbit2 10s ease-in-out infinite alternate;
+}
+
+/* Radiant Emerald Silk Glow (Right Edge) */
+.gemini-bg-mesh .mesh-orb-3 {
+    width: 65vw;
+    height: 65vw;
+    top: 25vh;
+    right: -15vw;
+    background: radial-gradient(circle, rgba(82, 206, 138, 0.74) 0%, rgba(135, 224, 175, 0.45) 45%, rgba(198, 244, 218, 0.18) 70%, transparent 85%);
+    animation: geminiOrbit3 12s ease-in-out infinite alternate;
+}
+
+/* Fresh Lime-Mint Aurora Glow (Bottom Flow) */
+.gemini-bg-mesh .mesh-orb-4 {
+    width: 70vw;
+    height: 65vh;
+    bottom: -18vh;
+    left: 10vw;
+    background: radial-gradient(circle, rgba(162, 235, 118, 0.72) 0%, rgba(206, 242, 155, 0.45) 45%, rgba(238, 250, 204, 0.18) 72%, transparent 85%);
+    animation: geminiOrbit4 11s ease-in-out infinite alternate;
+}
+
+/* Sunny Buttercup Amber Glow (Left Floating Core) */
+.gemini-bg-mesh .mesh-orb-5 {
+    width: 55vw;
+    height: 55vw;
+    top: 30vh;
+    left: -12vw;
+    background: radial-gradient(circle, rgba(255, 228, 118, 0.74) 0%, rgba(255, 210, 100, 0.46) 45%, rgba(255, 244, 185, 0.18) 72%, transparent 85%);
+    animation: geminiOrbit5 8.5s ease-in-out infinite alternate;
+}
+
+@keyframes geminiOrbit1 {
+    0% {
+        transform: translate(0, 0) scale(1) rotate(0deg);
+    }
+    50% {
+        transform: translate(14vw, 10vh) scale(1.22) rotate(18deg);
+    }
+    100% {
+        transform: translate(-10vw, 16vh) scale(0.88) rotate(-14deg);
+    }
+}
+
+@keyframes geminiOrbit2 {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+    50% {
+        transform: translate(-14vw, 12vh) scale(1.2);
+    }
+    100% {
+        transform: translate(-8vw, 20vh) scale(0.9);
+    }
+}
+
+@keyframes geminiOrbit3 {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+    50% {
+        transform: translate(-16vw, -12vh) scale(1.24);
+    }
+    100% {
+        transform: translate(-10vw, 18vh) scale(0.85);
+    }
+}
+
+@keyframes geminiOrbit4 {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+    50% {
+        transform: translate(-14vw, -15vh) scale(1.18);
+    }
+    100% {
+        transform: translate(16vw, -8vh) scale(1.12);
+    }
+}
+
+@keyframes geminiOrbit5 {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+    50% {
+        transform: translate(15vw, -12vh) scale(1.24);
+    }
+    100% {
+        transform: translate(8vw, 16vh) scale(0.86);
+    }
 }
 
 body.entry-active {
@@ -684,35 +779,10 @@ body:not(.entry-active) #entry-portal {
     flex-direction: column;
     gap: 18px;
     text-decoration: none;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     position: relative;
-    overflow: hidden;
     cursor: pointer;
     text-align: left;
     font-family: inherit;
-}
-
-.royal-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 200%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(235, 245, 238, 0.5), transparent);
-    transform: rotate(25deg);
-    pointer-events: none;
-    transition: transform 0.8s ease;
-}
-
-.royal-card:hover::before {
-    transform: translateX(100%) rotate(25deg);
-}
-
-.royal-card:hover {
-    border-color: rgba(30, 58, 43, 0.22);
-    transform: translateY(-6px);
-    box-shadow: var(--liquid-shadow-hover);
 }
 
 .royal-card h3 {
@@ -720,11 +790,6 @@ body:not(.entry-active) #entry-portal {
     font-weight: 700;
     letter-spacing: -0.01em;
     color: var(--forest-deep);
-    transition: color 0.3s ease;
-}
-
-.royal-card:hover h3 {
-    color: var(--forest-primary);
 }
 
 .royal-card p {
@@ -736,12 +801,6 @@ body:not(.entry-active) #entry-portal {
 .royal-card i {
     font-size: 2rem;
     color: var(--forest-accent);
-    transition: transform 0.4s ease, color 0.3s ease;
-}
-
-.royal-card:hover i {
-    transform: scale(1.08);
-    color: var(--forest-primary);
 }
 
 /* Project Cards */
