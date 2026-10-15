@@ -114,12 +114,14 @@ document.addEventListener('DOMContentLoaded', () => {
             closeMobileMenu();
             document.body.classList.remove('entry-active');
             activateHero();
+            setTimeout(checkAboutVisibilityOnEntry, 150);
         });
     }
 
     // If page is loaded/relaunched without entry portal active
     if (!document.body.classList.contains('entry-active')) {
         activateHero();
+        setTimeout(checkAboutVisibilityOnEntry, 200);
     }
 
     // Coming Soon toast handler
@@ -142,6 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
         switchBtn.addEventListener('click', () => {
             closeMobileMenu();
             deactivateHero();
+            resetAboutWaveform();
             document.body.classList.add('entry-active');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
@@ -279,4 +282,136 @@ document.addEventListener('DOMContentLoaded', () => {
     sections.forEach(section => {
         observer.observe(section);
     });
+
+    // ==========================================================================
+    // About Section Waveform Text Animation (Static Text - Always Visible)
+    // ==========================================================================
+    const aboutSection = document.getElementById('about');
+    const aboutWaveformEl = document.querySelector('.about-text-waveform');
+    let aboutWaveTimeout = null;
+    let isWaveAnimating = false;
+    let isAboutInView = false;
+
+    let lastScrollY = window.pageYOffset || document.documentElement.scrollTop;
+    let scrollDirection = 'down';
+
+    window.addEventListener('scroll', () => {
+        const currentScrollY = window.pageYOffset || document.documentElement.scrollTop;
+        const currentDir = currentScrollY > lastScrollY ? 'down' : 'up';
+        const dirChanged = currentDir !== scrollDirection;
+        scrollDirection = currentDir;
+        lastScrollY = currentScrollY;
+
+        // If user is currently looking at or scrolling through the About section
+        if (isAboutInView && !document.body.classList.contains('entry-active')) {
+            if (dirChanged && !isWaveAnimating) {
+                triggerWaveAnimation(scrollDirection);
+            }
+        }
+    }, { passive: true });
+
+    function initAboutWaveformText() {
+        if (!aboutWaveformEl) return;
+
+        const rawText = aboutWaveformEl.textContent.trim();
+        // Accessibility: preserve full text for screen readers
+        aboutWaveformEl.setAttribute('aria-label', rawText);
+        aboutWaveformEl.setAttribute('role', 'text');
+
+        // Split into words so responsive line breaks are preserved
+        const words = rawText.split(/\s+/);
+        aboutWaveformEl.innerHTML = '';
+
+        let charCounter = 0;
+        const fragment = document.createDocumentFragment();
+
+        words.forEach((word, wordIdx) => {
+            const wordSpan = document.createElement('span');
+            wordSpan.className = 'wave-word';
+
+            for (let i = 0; i < word.length; i++) {
+                const charSpan = document.createElement('span');
+                charSpan.className = 'wave-char';
+                charSpan.textContent = word[i];
+                charSpan.style.setProperty('--char-index', charCounter);
+                charCounter++;
+                wordSpan.appendChild(charSpan);
+            }
+
+            fragment.appendChild(wordSpan);
+
+            // Standard space between words
+            if (wordIdx < words.length - 1) {
+                const spaceSpan = document.createElement('span');
+                spaceSpan.className = 'wave-space';
+                spaceSpan.innerHTML = ' ';
+                fragment.appendChild(spaceSpan);
+            }
+        });
+
+        aboutWaveformEl.appendChild(fragment);
+        aboutWaveformEl.style.setProperty('--total-chars', charCounter);
+    }
+
+    function triggerWaveAnimation(direction = 'down') {
+        if (!aboutWaveformEl) return;
+        if (isWaveAnimating) return; // Let current wave complete smoothly
+        isWaveAnimating = true;
+
+        if (aboutWaveTimeout) clearTimeout(aboutWaveTimeout);
+
+        aboutWaveformEl.classList.remove('wave-anim-down', 'wave-anim-up');
+        void aboutWaveformEl.offsetWidth; // Force reflow to re-trigger animation cleanly
+
+        const animClass = direction === 'down' ? 'wave-anim-down' : 'wave-anim-up';
+        aboutWaveformEl.classList.add(animClass);
+
+        const totalChars = parseInt(aboutWaveformEl.style.getPropertyValue('--total-chars') || '180', 10);
+        const animDuration = (totalChars * 9) + 750;
+
+        aboutWaveTimeout = setTimeout(() => {
+            aboutWaveformEl.classList.remove('wave-anim-down', 'wave-anim-up');
+            isWaveAnimating = false;
+        }, animDuration);
+    }
+
+    function resetAboutWaveform() {
+        if (!aboutWaveformEl) return;
+        if (aboutWaveTimeout) clearTimeout(aboutWaveTimeout);
+        isWaveAnimating = false;
+        aboutWaveformEl.classList.remove('wave-anim-down', 'wave-anim-up');
+    }
+
+    function checkAboutVisibilityOnEntry() {
+        if (!aboutSection) return;
+        const rect = aboutSection.getBoundingClientRect();
+        const inView = rect.top < window.innerHeight * 0.85 && rect.bottom > 0;
+        if (inView) {
+            triggerWaveAnimation('down');
+        }
+    }
+
+    // Initialize character and word spans (text is completely visible at all times)
+    initAboutWaveformText();
+
+    // IntersectionObserver triggers the wave when scrolled into view (both scroll down and scroll up)
+    if (aboutSection) {
+        const aboutObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (document.body.classList.contains('entry-active')) return;
+
+                if (entry.isIntersecting) {
+                    isAboutInView = true;
+                    triggerWaveAnimation(scrollDirection);
+                } else {
+                    isAboutInView = false;
+                }
+            });
+        }, {
+            threshold: 0.15,
+            rootMargin: '0px 0px 0px 0px'
+        });
+
+        aboutObserver.observe(aboutSection);
+    }
 });

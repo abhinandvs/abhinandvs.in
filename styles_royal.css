@@ -754,6 +754,127 @@ body:not(.entry-active) #entry-portal {
     gap: 18px;
 }
 
+/* ==========================================================================
+   About Section Waveform Text Animation (Static Text - Always Visible)
+   ========================================================================== */
+
+.about-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.about-text-waveform {
+    display: inline-block;
+    width: 100%;
+    margin: 0;
+    font-kerning: normal;
+    opacity: 1 !important;
+}
+
+.about-text-waveform .wave-word {
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.about-text-waveform .wave-space {
+    display: inline;
+}
+
+.about-text-waveform .wave-char {
+    display: inline-block;
+    vertical-align: baseline;
+    opacity: 1 !important;
+    transform: translateY(0);
+    filter: none !important;
+    will-change: transform, color;
+    transition: color 0.35s ease;
+}
+
+/* Waveform when scrolling DOWN (undulating wave ripples left-to-right across static text) */
+.about-text-waveform.wave-anim-down .wave-char {
+    animation: waveCharScrollDown 0.72s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    animation-delay: calc(var(--char-index) * 9ms);
+}
+
+@keyframes waveCharScrollDown {
+    0% {
+        transform: translateY(0) scale(1);
+    }
+    28% {
+        transform: translateY(-11px) scale(1.05);
+        color: var(--forest-primary);
+    }
+    55% {
+        transform: translateY(6px) scale(0.98);
+    }
+    78% {
+        transform: translateY(-2px) scale(1.01);
+    }
+    100% {
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Waveform when scrolling UP (undulating wave ripples right-to-left across static text) */
+.about-text-waveform.wave-anim-up .wave-char {
+    animation: waveCharScrollUp 0.72s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    animation-delay: calc((var(--total-chars) - var(--char-index)) * 9ms);
+}
+
+@keyframes waveCharScrollUp {
+    0% {
+        transform: translateY(0) scale(1);
+    }
+    28% {
+        transform: translateY(-11px) scale(1.05);
+        color: var(--forest-primary);
+    }
+    55% {
+        transform: translateY(6px) scale(0.98);
+    }
+    78% {
+        transform: translateY(-2px) scale(1.01);
+    }
+    100% {
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Ambient waveform ripple on hover */
+.about-card:hover .wave-char {
+    animation: waveCharAmbient 1.6s ease-in-out infinite alternate;
+    animation-delay: calc(var(--char-index) * 16ms);
+}
+
+@keyframes waveCharAmbient {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-4px);
+        color: var(--forest-primary);
+    }
+    100% {
+        transform: translateY(2px);
+    }
+}
+
+/* Contact chips are always fully visible */
+.about-card .contact-chips {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    pointer-events: auto !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .about-text-waveform .wave-char {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+        animation: none !important;
+    }
+}
+
 /* Grids */
 .grid-3 {
     display: grid;
